@@ -1,10 +1,15 @@
 import express from "express";
-import "dotenv/config";
+import { ENV } from "./config/env.js";
+import { conncetDB } from "./config/db.js";
 
 const app = express();
 
-const PORT = process.env.PORT;
+conncetDB();
 
-app.listen(PORT, () => {
-  console.log(`server listening on port ${PORT}`);
+app.get("/", (req, res) => {
+  res.send("welcome, twitter-app-clone");
+});
+
+app.listen(ENV.PORT, () => {
+  console.log(`server listening on port ${ENV.PORT}`);
 });
