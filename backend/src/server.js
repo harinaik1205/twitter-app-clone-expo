@@ -32,9 +32,11 @@ async function startServer() {
   try {
     await conncetDB();
 
-    app.listen(ENV.PORT, () => {
-      console.log(`server listening on port ${ENV.PORT}`);
-    });
+    if (ENV.NODE_ENV !== "production") {
+      app.listen(ENV.PORT, () => {
+        console.log(`server listening on port ${ENV.PORT}`);
+      });
+    }
   } catch (error) {
     console.error("Failed to start server", error.message);
     process.exit(1);
@@ -42,3 +44,6 @@ async function startServer() {
 }
 
 startServer();
+
+// export for vercel
+export default app;
