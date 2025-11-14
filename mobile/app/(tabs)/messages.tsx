@@ -84,7 +84,7 @@ const Messages = () => {
     <SafeAreaView className="flex-1 bg-white">
       <View className="flex-row justify-between items-center px-4 py-3 border-b border-gray-100">
         <Text
-          className="text-xl font-bold text-gr-90\
+          className="text-xl font-bold text-gray-900
         "
         >
           Messages
